@@ -3,9 +3,7 @@ package com.vega.sprinit.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -19,6 +17,7 @@ public class Comment {
     private String body;
 
     //link placeholder
-
+    @ManyToOne //many comments to one link,
+    private Link link;  //created the properties that allow us to do the association,
 
 }

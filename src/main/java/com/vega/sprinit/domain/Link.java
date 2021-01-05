@@ -9,6 +9,9 @@ import lombok.RequiredArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity   //specifies that this class is a entity
@@ -24,6 +27,12 @@ public class Link {
     private String title;
     @NotNull
     private String url;
+
+    //need a way to access comment for a link
+
+    //when working with assocation always want to delacre the interface and not the implementation as the type
+    @OneToMany(mappedBy = "link") //one link to many comment, since we want to be able give me the link that comment belongs to theres need to be a owner of the realtionship and use mappedby
+    private List<Comment> comments = new ArrayList<>();
 
 
 }
