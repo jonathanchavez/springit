@@ -9,7 +9,7 @@ import java.util.Objects;
 @Entity
 @Data
 @NoArgsConstructor
-public class Comment {
+public class Comment extends Auditable {
 
     @Id  //specifies the primary key of the entity
     @GeneratedValue  //provides the specification of generation stragerty of primary keys
