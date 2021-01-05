@@ -1,6 +1,7 @@
 package com.vega.sprinit.domain;
 //a class to a table model, represent a table in a database
 
+import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,9 @@ public class Link {
     @Id  //specifies the primary key of the entity
     @GeneratedValue  //provides the specification of generation stragerty of primary keys
     private Long id;
+    @NotNull
     private String title;
+    @NotNull
     private String url;
 
 
