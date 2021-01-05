@@ -18,7 +18,7 @@ import java.util.Objects;
 //replace boilerplate code
 @NoArgsConstructor  //public constructor gets rid
 @Data //get rids of getters and setters, all togehter shortcut for getters,setters,tostring.equlas,hashcode
-public class Link {
+public class Link extends Auditable{
 
     @Id  //specifies the primary key of the entity
     @GeneratedValue  //provides the specification of generation stragerty of primary keys
