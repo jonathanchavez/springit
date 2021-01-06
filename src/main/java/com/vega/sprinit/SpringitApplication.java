@@ -5,6 +5,7 @@ import com.vega.sprinit.domain.Comment;
 import com.vega.sprinit.domain.Link;
 import com.vega.sprinit.repository.CommentRepository;
 import com.vega.sprinit.repository.LinkRepository;
+import org.ocpsoft.prettytime.PrettyTime;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,24 +25,29 @@ public class SpringitApplication {
 
 	}
 
-	@Bean  //need @bean to be picked up as a bean and resigter as a bean
-	CommandLineRunner runner(LinkRepository linkRepository, CommentRepository commentRepository	) {
-		return args -> {
-			Link link = new Link("Getting Started with spring boot 2", "www.google.com");
-			linkRepository.save(link);
+//	@Bean  //need @bean to be picked up as a bean and resigter as a bean
+//	CommandLineRunner runner(LinkRepository linkRepository, CommentRepository commentRepository	) {
+//		return args -> {
+//			Link link = new Link("Getting Started with spring boot 2", "www.google.com");
+//			linkRepository.save(link);
+//
+//			Comment comment = new Comment("THis spring 2 link", link);
+//			commentRepository.save(comment);
+//
+//			//need to tell the other side what is going on
+//			link.addComment(comment);
+//
+//
+//////			prints title out to console
+////			Link firstLink = linkRepository.findByTitle("getting starter");
+////			System.out.println(firstLink.getTitle());
+//
+//		};
+//	}
 
-			Comment comment = new Comment("THis spring 2 link", link);
-			commentRepository.save(comment);
-
-			//need to tell the other side what is going on
-			link.addComment(comment);
-
-
-////			prints title out to console
-//			Link firstLink = linkRepository.findByTitle("getting starter");
-//			System.out.println(firstLink.getTitle());
-
-		};
+	@Bean
+	PrettyTime prettyTime(){
+		return new PrettyTime(); // creates new instance of pretty time
 	}
 
 }
